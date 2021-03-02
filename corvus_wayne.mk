@@ -24,14 +24,9 @@
 # Inherit device configuration
 $(call inherit-product, device/xiaomi/wayne/device.mk)
 
-# Inherit some common stuff from Project-Awaken
-AWAKEN_BUILD_TYPE := OFFICIAL
-$(call inherit-product, vendor/awaken/config/common.mk)
-$(call inherit-product, vendor/awaken/config/gsm.mk)
+# Inherit some common stuff from Project-Corvus
+$(call inherit-product, vendor/corvus/config/common_full_phone.mk)
 
-# Gapps
-USE_GAPPS := true
-IS_PHONE := true
 TARGET_GAPPS_ARCH := arm64
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_SUPPORTS_STOCK_ARCORE := true
@@ -44,12 +39,19 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="wayne-user 9 PKQ1.180904.001 V10.3.4.0.PDCCNXM release-keys"
 
+# Faceunlock
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
 # Density
 TARGET_SCREEN_DENSITY := 400
+
+# Maintainer
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.corvus.maintainer=Ronald
 
 # Device identifier
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := awaken_wayne
+PRODUCT_NAME := corvus_wayne
 PRODUCT_DEVICE := wayne
 PRODUCT_MODEL := MI 6X
