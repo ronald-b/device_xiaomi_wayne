@@ -24,21 +24,28 @@
 # Inherit device configuration
 $(call inherit-product, device/xiaomi/wayne/device.mk)
 
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit LegionOS product configuration
+$(call inherit-product, vendor/legion/config/common_full_phone.mk)
 
 # Define first api level
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk)
 
 # Density
-TARGET_SCREEN_DENSITY := 400
+TARGET_SCREEN_DENSITY := 480
+
+#Boot Animation Resolution
+TARGET_BOOT_ANIMATION_RES := 1080
+
+# LegionOS Device Maintainers
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.maintainer.name=Ronald
+
+#Gapps Architecture
+TARGET_GAPPS_ARCH := arm64
 
 # Device identifier
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := lineage_wayne
+PRODUCT_NAME := legion_wayne
 PRODUCT_DEVICE := wayne
 PRODUCT_MODEL := MI 6X
-
-# OFFICIAL SPICEOS Build
-
-SPICEOS_BUILDTYPE = OFFICIAL

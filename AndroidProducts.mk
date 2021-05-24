@@ -23,9 +23,9 @@
 
 # inherit device config for Project-Awaken
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_wayne.mk
+    $(LOCAL_DIR)/legion_wayne.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_wayne-eng \
-    lineage_wayne-userdebug \
-    lineage_wayne-user
+    legion_wayne-eng \
+    legion_wayne-userdebug \
+    legion_wayne-user
